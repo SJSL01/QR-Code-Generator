@@ -26,5 +26,5 @@ app.post("/generateQR", async (req, res) => {
 
 
 app.listen(process.env.PORT, () => {
-    console.log("server up at 3010");
+    console.log(`Service up at ${process.env.PORT}`);
 })
