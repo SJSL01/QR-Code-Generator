@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>QR Generator</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div>
+        <h1>QR Generator</h1>
+
+        <input placeholder="Enter Something...." type="text" />
+
+        <button>GENERATE QR</button>
+    </div>
+
+
+    <div class="download">
+
+        <img />
+
+        <a download="QRCode.jpg">⬇</a>
+
+    </div>
+
+
+    <script>
+
+        const img = document.querySelector("img")
+
+        const input = document.querySelector("input")
+        let inputURL = ""
+        input.addEventListener("input", (e) => {
+            inputURL = e.target.value
+        })
+
+        const button = document.querySelector("button")
+        const a = document.querySelector("a")
+
+        button.addEventListener("click", () => {
+            if (inputURL === "") {
+                alert("Empty Values Not Allowed")
+                return
+            }
+            fetch('http://localhost:3010/generateQR', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: inputURL }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    img.setAttribute("src", data)
+                    a.setAttribute("href", data)
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        })
+
+    </script>
+</body>
+
+</html>
