@@ -1,9 +1,9 @@
 body {
-    height: 70vh;
+    height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     background-color: #212121;
@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-    font-size: 10vh;
+    font-size: 5vw;
     color: rgb(232, 232, 232);
 }
 
@@ -27,24 +27,28 @@ a:link {
 
 
 div {
+    width: 100%;
     height: 50vh;
-    width: fit-content;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
 .download {
+    align-items: flex-end;
+    width: 20%;
+    height: 40vh;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 
 button {
     background: rgb(141, 141, 141);
     color: #000000;
-    height: 5vh;
+    height: 200vh;
+    width: 20vw;
     margin: 10px;
     border: none;
     border-radius: 0 !important;
@@ -61,8 +65,14 @@ button:hover {
     color: #EEEEEE;
 }
 
-
 img {
+    display: none;
+}
+
+
+img[src] {
+    display: block;
+    width: 100%;
     margin: 0 5vh;
     aspect-ratio: 1/1;
 }
@@ -71,7 +81,7 @@ input {
     text-align: center;
     font-size: 2vw;
     margin: 5vh 0;
-    height: 5vh;
+    height: 100vw;
     border: 2px solid transparent;
     outline: none;
     border-bottom: 2px solid #3f3f3f;
@@ -94,15 +104,63 @@ input:focus {
     color: #d3d3d3;
 }
 
-@media only screen and (width<600px) {
 
+@media only screen and (width<900px) {
     h1 {
-        font-size: 5vh;
+        font-size: 8vh;
     }
 
     input,
     button {
-        width: 30vh;
+        width: 50%;
+    }
+
+    input {
         font-size: 3vh;
     }
+
+    button {
+        height: 80vh;
+    }
+
+    .download {
+        width: 30%;
+    }
+}
+
+@media only screen and (width<600px) {
+    h1 {
+        font-size: 10vw;
+    }
+
+    input {
+        font-size: 3vh;
+    }
+
+    button {
+        height: 30vh;
+    }
+
+    .download {
+        width: 50%;
+    }
+}
+
+@media only screen and (width<400px) {
+
+    div {
+        height: 30vh;
+    }
+
+    button {
+        height: 20vh;
+        font-size: 2vh;
+    }
+
+    input {
+        height: 5vh;
+        font-size: 1.5vh;
+    }
+
+
 }
